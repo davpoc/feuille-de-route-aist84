@@ -1,0 +1,406 @@
+/* General Styles - Dark Theme */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #1a1a1a; 
+    color: #e0e0e0; 
+    overflow: hidden; 
+}
+
+.slideshow-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 30px 40px; /* Reduced padding for more content space */
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: #2b2b2b; 
+}
+
+.slide.active {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; -- Removed to allow content to flow from top */
+    align-items: center;
+}
+
+.slide-content {
+    /* max-width: 900px; -- Removed fixed max-width */
+    width: 95%; /* Use a percentage for responsiveness, allowing more width */
+    max-width: 1200px; /* Still good to have an upper limit for very large screens */
+    text-align: left;
+    animation: fadeInAnimation 0.8s ease-in-out;
+    margin: 0 auto; /* Center the content block if screen is wider than max-width */
+}
+
+@keyframes fadeInAnimation {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    color: #00A1E0; 
+    font-size: 2.2em; /* Slightly reduced for more space */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #00A1E0;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: #00BFFF; 
+    font-size: 1.6em; /* Slightly reduced */
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+
+h3 {
+    color: #cccccc; 
+    font-size: 1.3em; /* Slightly reduced */
+    margin-top: 20px; 
+    margin-bottom: 8px;
+}
+
+p, li {
+    font-size: 1em; /* Slightly reduced */
+    line-height: 1.55;
+    margin-bottom: 8px;
+    color: #d4d4d4; 
+}
+
+ol, ul {
+    margin-left: 20px;
+    margin-bottom: 12px;
+}
+
+/* Navigation Arrows */
+.prev, .next {
+    cursor: pointer;
+    position: fixed; /* Fixed position relative to viewport */
+    top: 50%;
+    width: auto;
+    padding: 16px; /* Adjusted padding */
+    margin-top: -22px; /* Adjusted margin */
+    color: #1f1f1f; 
+    font-weight: bold;
+    font-size: 20px; /* Adjusted size */
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(200, 200, 200, 0.6); /* Slightly more transparent */
+    z-index: 1000; /* Ensure arrows are on top of everything */
+}
+
+.next {
+    right: 10px; /* Give some space from edge */
+    border-radius: 3px 0 0 3px;
+}
+.prev {
+    left: 10px; /* Give some space from edge */
+}
+
+.prev:hover, .next:hover {
+    background-color: #f0f0f0; 
+}
+
+/* Editable Sections and Textareas - Dark Theme */
+.editable-section {
+    margin-top: 25px; /* Adjusted margin */
+    padding: 15px; /* Adjusted padding */
+    background-color: #383838; 
+    border-radius: 8px;
+    border: 1px solid #4a4a4a;
+}
+
+.rubrique-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px; 
+}
+
+.rubrique-header h3 {
+    margin-bottom: 0; 
+    margin-top: 10px; /* Adjusted margin */
+    flex-grow: 1; 
+}
+
+.add-field-btn {
+    background-color: transparent;
+    color: #00A1E0; 
+    border: none; 
+    border-radius: 50%; 
+    padding: 6px; 
+    cursor: pointer;
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, transform 0.2s;
+    margin-left: 10px; 
+    line-height: 1; 
+}
+
+.add-field-btn .material-icons {
+    font-size: 28px; 
+}
+
+.add-field-btn:hover {
+    background-color: rgba(0, 161, 224, 0.2); 
+    transform: scale(1.1); 
+}
+.add-field-btn:active {
+    transform: scale(0.95); 
+}
+
+
+.dynamic-textarea-container .textarea-wrapper { 
+    display: flex;
+    align-items: flex-start; 
+    margin-bottom: 10px;
+    width: 100%; /* Ensure wrapper takes full width */
+}
+
+.dynamic-textarea-container textarea {
+    flex-grow: 1; 
+    width: 100%; /* Ensure textarea takes full width within wrapper */
+    min-height: 70px; /* Further reduced min-height */
+    padding: 8px; /* Adjusted padding */
+    border: 1px solid #555; 
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    line-height: 1.5;
+    box-sizing: border-box;
+    resize: vertical;
+    background-color: #404040; 
+    color: #e0e0e0; 
+}
+
+.remove-field-btn { 
+    background-color: transparent; 
+    color: #888; 
+    border: none; 
+    border-radius: 50%; 
+    width: 28px; /* Adjusted size */
+    height: 28px; /* Adjusted size */
+    font-size: 22px; /* Adjusted icon size */
+    cursor: pointer; 
+    margin-left: 8px; 
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s, background-color 0.2s;
+    flex-shrink: 0; 
+}
+.remove-field-btn:hover { 
+    color: #dc3545; 
+    background-color: rgba(220, 53, 69, 0.1); 
+}
+
+
+textarea::placeholder {
+    color: #999; /* Slightly darker placeholder for better contrast */
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #00A1E0; 
+    box-shadow: 0 0 8px rgba(0, 161, 224, 0.6);
+}
+
+/* Styles for Save/Load Controls in Slide 1 - Dark Theme */
+.save-load-controls {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #383838;
+    border-radius: 8px;
+    border: 1px solid #4a4a4a;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.save-load-controls input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #404040;
+    color: #e0e0e0;
+}
+
+.save-load-controls input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+.save-load-controls button, .import-button {
+    padding: 10px 15px;
+    background-color: #007BBE; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.save-load-controls button:hover, .import-button:hover {
+    background-color: #005A9C; 
+}
+
+.import-button {
+    display: inline-block;
+}
+
+.saved-sessions {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #333333; 
+    border-radius: 8px;
+    border: 1px solid #454545;
+}
+
+.saved-sessions h3 {
+    margin-top: 0;
+    color: #00A1E0; 
+}
+
+#savedSessionsList {
+    list-style: none;
+    padding: 0;
+    max-height: 150px; /* Reduced max height */
+    overflow-y: auto;
+}
+
+#savedSessionsList li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #505050; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #d4d4d4; 
+}
+#savedSessionsList li:last-child {
+    border-bottom: none;
+}
+
+#savedSessionsList button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    cursor: pointer;
+    color: white; 
+}
+
+.load-btn {
+    background-color: #28a745; 
+}
+.load-btn:hover {
+    background-color: #218838;
+}
+
+.delete-btn {
+    background-color: #dc3545; 
+}
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+
+/* Fade animation for slides */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 0.8s;
+    animation-name: fade;
+    animation-duration: 0.8s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .slide {
+        padding: 15px; /* Further reduced padding for small screens */
+    }
+    .slide-content {
+        width: 100%; /* Full width on small screens */
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+    p, li {
+        font-size: 0.95em;
+    }
+
+    .prev, .next {
+        font-size: 16px;
+        padding: 12px;
+        top: auto; /* Allow button to flow with content if needed */
+        bottom: 10px; /* Position at bottom */
+        margin-top: 0;
+        transform: translateY(0);
+    }
+    .prev { left: 5px; }
+    .next { right: 5px; }
+
+
+    .save-load-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .save-load-controls input[type="text"],
+    .save-load-controls button,
+    .import-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .rubrique-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .add-field-btn {
+        margin-left: 0;
+        margin-top: 8px; 
+    }
+    .dynamic-textarea-container .textarea-wrapper {
+        flex-direction: column; 
+    }
+    .remove-field-btn {
+        margin-left: 0;
+        margin-top: 5px;
+        align-self: flex-end; 
+    }
+}
+
+/* Helper for inline icon in instruction text */
+.add-field-icon-inline {
+    font-size: 1.2em; 
+    vertical-align: middle; 
+    color: #00A1E0; 
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feuille de Route - Référents Métiers AIST 84 (Thème Sombre - V7 Actions)</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="slideshow-container">
+
+        <!-- Slide 1: Introduction / Mode d'emploi -->
+        <div class="slide fade active">
+            <div class="slide-content">
+                <h1>Utilisation en Formation et pour le Livrable</h1>
+                <h2>Logique de la démarche de co-construction :</h2>
+                <ol>
+                    <li><strong>Phase 1 (Plénière) : Compréhension commune du RÔLE de Référent Métier.</strong>
+                        <ul>
+                            <li>Utilisation principale de la "Fiche EMPLOI : Référent métier" (générique).</li>
+                            <li>Objectif : S'accorder sur la finalité, les grandes missions transversales et les compétences clés inhérentes à la fonction de Référent Métier, quel que soit le poste d'origine.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Phase 2 (Sous-groupes par poste d'origine) : Application et Spécificités.</strong>
+                        <ul>
+                            <li>Chaque groupe (ex: les Médecins du Travail Référents) travaille sur la déclinaison du rôle de Référent Métier dans SON contexte, s'appuyant sur SA fiche de poste ET sur la "Fiche EMPLOI : Référent métier".</li>
+                        </ul>
+                    </li>
+                    <li><strong>Phase 3 (Plénière) : Partage, Synthèse et Plan d'Action.</strong>
+                        <ul>
+                            <li>Mise en commun des travaux des sous-groupes.</li>
+                            <li>Identification des actions communes et spécifiques. Priorisation.</li>
+                            <li>Validation de la feuille de route.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <h2>Pour le Livrable :</h2>
+                <p>Le tableau co-construit sera la matière première principale. Ajoutez une introduction (contexte, objectifs) et une conclusion (prochaines étapes, suivi). Cette structure permet une lecture claire : vision globale, déclinaisons métier, et plan d'action concret.</p>
+                <p>Utilisez les slides suivants pour documenter vos réflexions et actions.
+                   Donnez un nom à votre session de travail ci-dessous pour sauvegarder et charger vos données.
+                   Utilisez le bouton <span class="add-field-icon-inline material-icons">add_circle_outline</span> à côté des titres de rubrique pour ajouter des champs de saisie supplémentaires.</p>
+                
+                <div class="save-load-controls">
+                    <input type="text" id="saveName" placeholder="Nom de la session de travail">
+                    <button onclick="saveData()">Sauvegarder Session</button>
+                    <button onclick="exportToJson()">Exporter en JSON</button>
+                    <label for="importFile" class="import-button">Importer JSON</label>
+                    <input type="file" id="importFile" accept=".json" onchange="importFromJson(event)" style="display: none;">
+                </div>
+                <div class="saved-sessions">
+                    <h3>Sessions Sauvegardées :</h3>
+                    <ul id="savedSessionsList">
+                        <!-- La liste sera remplie par JS -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Thématique 1 - Vision -->
+        <div class="slide fade">
+            <div class="slide-content">
+                <h1>A. Établir une vision commune du rôle de « Référent Métier »</h1>
+                <p>Réfléchissez à la finalité, au rôle central et dynamique, à la posture de porte-parole et d'interface. Comment cela se traduit pour votre métier spécifique ? Quelle est votre vision commune ?</p>
+                <div class="editable-section" id="section-vision">
+                    <div class="rubrique-header">
+                        <h3>Notre Vision & Clarifications COMMUNES pour le Rôle de Référent Métier:</h3>
+                        <button class="add-field-btn" onclick="addTextField('vision_commune_container', 'vision_commune')" title="Ajouter un champ de vision commune"><span class="material-icons">add_circle_outline</span></button>
+                    </div>
+                    <div id="vision_commune_container" class="dynamic-textarea-container">
+                        <div class="textarea-wrapper">
+                            <textarea data-field="vision_commune" placeholder="Ex: Le Référent Métier à l'AIST 84 est un facilitateur clé, garant de..., s'appuyant sur..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="rubrique-header">
+                        <h3>Application & Spécificités pour VOTRE rôle de Référent Métier:</h3>
+                        <button class="add-field-btn" onclick="addTextField('vision_specifique_container', 'vision_specifique')" title="Ajouter un champ de vision spécifique"><span class="material-icons">add_circle_outline</span></button>
+                    </div>
+                    <div id="vision_specifique_container" class="dynamic-textarea-container">
+                        <div class="textarea-wrapper">
+                            <textarea data-field="vision_specifique" placeholder="Comment cette finalité se traduit spécifiquement pour vous (Médecin Référent, Infirmier Référent, etc.) ?"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Thématique 2 - Missions -->
+        <div class="slide fade">
+            <div class="slide-content">
+                <h1>B. Structurer et clarifier les missions des Référents Métiers</h1>
+                <p>Listez les missions (animer les échanges, apporter une expertise, assurer la veille, participer à l'intégration...). Comment se déclinent-elles pour votre poste ? Quelles compétences sont cruciales ?</p>
+                <div class="editable-section" id="section-missions">
+                    <div class="rubrique-header">
+                        <h3>Missions Clés COMMUNES et Spécifiques (et compétences associées) :</h3>
+                        <button class="add-field-btn" onclick="addTextField('missions_cles_container', 'missions_cles')" title="Ajouter une mission clé"><span class="material-icons">add_circle_outline</span></button>
+                    </div>
+                    <div id="missions_cles_container" class="dynamic-textarea-container">
+                        <div class="textarea-wrapper">
+                            <textarea data-field="missions_cles" placeholder="Lister les missions (Ex: Animer les échanges métier : organiser réunions, favoriser collaboration...). Pour chaque mission, comment se décline-t-elle pour votre poste ?"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="rubrique-header">
+                        <h3>Compétences Clés (communes et spécifiques à votre rôle) :</h3>
+                        <button class="add-field-btn" onclick="addTextField('missions_competences_container', 'missions_competences')" title="Ajouter une compétence clé"><span class="material-icons">add_circle_outline</span></button>
+                    </div>
+                    <div id="missions_competences_container" class="dynamic-textarea-container">
+                        <div class="textarea-wrapper">
+                            <textarea data-field="missions_competences" placeholder="Quelles compétences de la fiche de poste de base sont cruciales pour être Référent de VOTRE métier ?"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Thématique 3 - Interactions -->
+        <div class="slide fade">
+            <div class="slide-content">
+                <h1>C. Cartographier les interactions des Référents Métiers</h1>
+                <p>Identifiez les services/acteurs clés (utilisez l'organigramme AIST 84 !), la nature des échanges, les flux d'informations. Qui sont vos interlocuteurs principaux en tant que Référent Métier ?</p>
+                <div class="editable-section" id="section-interactions">
+                     <div class="rubrique-header">
+                        <h3>Interactions Types du Référent Métier (interlocuteurs, nature des échanges) :</h3>
+                        <button class="add-field-btn" onclick="addTextField('interactions_types_container', 'interactions_types')" title="Ajouter une interaction type"><span class="material-icons">add_circle_outline</span></button>
+                    </div>
+                    <div id="interactions_types_container" class="dynamic-textarea-container">
+                        <div class="textarea-wrapper">
+                            <textarea data-field="interactions_types" placeholder="Pour VOTRE poste, quelles sont les interactions clés en tant que RM ? Avec qui (fonctions/services de l'organigramme) ? Quelle nature d'échange (information, collaboration, arbitrage...) ?"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 5: Thématique 4 - Actions à Mener -->
+        <div class="slide fade">
+            <div class="slide-content">
+                <h1>D. Identifier et prioriser les actions à mener</h1>
+                <p>Quelles actions concrètes (communes ou spécifiques) découlent de vos réflexions sur la vision, les missions et les interactions ? Priorisez-les.</p>
+                <div class="editable-section" id="section-actions">
+                    <div class="rubrique-header">
+                        <h3>Actions Concrètes Prioritaires :</h3>
+                        <button class="add-field-btn" onclick="addTextField('actions_prioritaires_container', 'actions_prioritaires', '', true)" title="Ajouter une action prioritaire"><span class="material-icons">add_circle_outline</span></button>
+                    </div>
+                    <div id="actions_prioritaires_container" class="dynamic-textarea-container">
+                        <div class="textarea-wrapper">
+                            <!-- Le placeholder sera défini dynamiquement par JS pour la numérotation -->
+                            <textarea data-field="actions_prioritaires" placeholder="Action 1:\nQuoi : \nQui : \nQuand : \nIndicateurs : "></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Thématique 5 - Échange de Pratiques -->
+        <div class="slide fade">
+            <div class="slide-content">
+                <h1>E. Favoriser l'échange de pratiques</h1>
+                <p>Comment capitaliser, apprendre ensemble, harmoniser ? Quelles bonnes pratiques partager ? Quels sont vos besoins d'échange ?</p>
+                <div class="editable-section" id="section-echange">
+                    <div class="rubrique-header">
+                        <h3>Modalités d'Échange de Pratiques (Quoi ? Comment ? Quand ?) :</h3>
+                        <button class="add-field-btn" onclick="addTextField('echange_pratiques_modalites_container', 'echange_pratiques_modalites')" title="Ajouter une modalité d'échange"><span class="material-icons">add_circle_outline</span></button>
+                    </div>
+                    <div id="echange_pratiques_modalites_container" class="dynamic-textarea-container">
+                        <div class="textarea-wrapper">
+                            <textarea data-field="echange_pratiques_modalites" placeholder="Ex: Mettre en place des rencontres régulières des RM (format, fréquence). Créer un espace partagé (numérique/physique). Organiser des retours d'expérience thématiques."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
